@@ -26,6 +26,11 @@ Scenario: Submitting an enquiry
 When I click on contact as
 And I enter my name as 'Bindu Tummala' and email as 'bindu.tummala98@gmail.com'
 Then I can be able to submit an Enquiry as 'Please tell these details........'
+
+Scenario: For using excels to send multiple queries
+When Make a click on contact us
+And Enter details from the excel "src/test/resources/excel/DemoExcel.xlsx" with sheetname "SomeCredentials"
+Then All the queries should be submitted
 @valid
 Scenario: To get details of the order
 When I order anything

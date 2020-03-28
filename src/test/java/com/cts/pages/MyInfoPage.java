@@ -7,22 +7,27 @@ import org.openqa.selenium.WebElement;
 
 public class MyInfoPage
 {	
-	private static By firstNameLoc = By.xpath("//input[@id='FirstName']");
-	private static By saveLoc = By.xpath("//input[@value='Save']");
+	private  By firstNameLoc = By.xpath("//input[@id='FirstName']");
+	private  By saveLoc = By.xpath("//input[@value='Save']");
+	private WebDriver driver;
+	public MyInfoPage(WebDriver driver)
+	{
+		this.driver =driver;
+	}
 	
-	public static void clearingFirstName(WebDriver driver)
+	public  void clearingFirstName()
 	{
 		driver.findElement(firstNameLoc).clear();
 	}
-	public static void editingFirstName(WebDriver driver,String editedName)
+	public  void editingFirstName(String editedName)
 	{	  
         driver.findElement(firstNameLoc).sendKeys(editedName);
 	}
-	public static void clickOnSave(WebDriver driver)
+	public  void clickOnSave()
 	{
         driver.findElement(saveLoc).click();
 	}
-	public static String toGetEditedName(WebDriver driver)
+	public  String toGetEditedName()
 	{
 		  WebElement firstName = driver.findElement(firstNameLoc);
 		  JavascriptExecutor js = (JavascriptExecutor)driver;

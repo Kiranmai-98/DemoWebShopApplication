@@ -7,21 +7,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RecentlyViewedProductsPage 
 {
-	private static By fictionLoc = By.xpath("//a[text()='Computing and Internet']");
-	private static By atcLoc1 = By.xpath("(//input[@value='Add to cart'])[1]");
-	private static By actualMsgOfAddedCartLoc = By.xpath("//p[@class='content']");
+	private  By fictionLoc = By.xpath("//a[text()='Computing and Internet']");
+	private  By atcLoc1 = By.xpath("(//input[@value='Add to cart'])[1]");
+	private  By actualMsgOfAddedCartLoc = By.xpath("//p[@class='content']");
+	private WebDriver driver;
+	public RecentlyViewedProductsPage(WebDriver driver)
+	{
+		this.driver = driver;
+	}
 	
-	public static void clickOnFiction(WebDriver driver)
+	public  void clickOnFiction()
 	{
 	   driver.findElement(fictionLoc).click();
 	}
 	
-	public static void clickOnAddTOCart(WebDriver driver)
+	public  void clickOnAddTOCart()
 	{
 		driver.findElement(atcLoc1).click();
 	}
 	
-	public static String  getActualMsgOfCarting(WebDriver driver)
+	public  String  getActualMsgOfCarting()
 	{
 	    WebDriverWait wait = new WebDriverWait(driver,50);
 	    wait.until(ExpectedConditions.presenceOfElementLocated(actualMsgOfAddedCartLoc));

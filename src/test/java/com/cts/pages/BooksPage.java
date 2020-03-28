@@ -5,9 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class BooksPage 
 {
-	private static By fictionLoc = By.xpath("//a[text()='Computing and Internet']");
+	private  By fictionLoc = By.xpath("//a[text()='Computing and Internet']");
+	private WebDriver driver;
 	
-	public static void clickOnFictionBook(WebDriver driver) throws InterruptedException
+	public BooksPage(WebDriver driver)
+	{
+		this.driver = driver;
+	}
+	public void clickOnFictionBook() throws InterruptedException
 	{
 		Thread.sleep(2000);
 		driver.findElement(fictionLoc).click();

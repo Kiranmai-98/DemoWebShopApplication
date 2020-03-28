@@ -7,67 +7,72 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ShoppingCartPage 
 {
-	private static By tosLoc = By.id("termsofservice");
-	private static By checkoutLoc = By.xpath("//button[contains(text(),'Checkout')]");
-	private static By newAddressLoc = By.id("billing-address-select");
-	private static By fnLoc = By.id("BillingNewAddress_FirstName");
-	private static By countryLoc = By.id("BillingNewAddress_CountryId");
-	private static By cityLoc = By.id("BillingNewAddress_City");
-	private static By addressLoc = By.id("BillingNewAddress_Address1");
-	private static By postCodeLoc = By.id("BillingNewAddress_ZipPostalCode");
-	private static By numberLoc = By.id("BillingNewAddress_PhoneNumber");
-	private static By continue1Loc = By.xpath("(//input[@title='Continue'])[1]");
-	private static By continue2Loc = By.xpath("(//input[@title='Continue'])[2]");
-	private static By continue3Loc = By.xpath("(//input[@value='Continue'])[3]");
-	private static By continue4Loc = By.xpath("(//input[@value='Continue'])[4]");
-	private static By continue5Loc = By.xpath("(//input[@value='Continue'])[5]");
-	private static By confirmLoc = By.xpath("//input[@value='Confirm']");
-	//private static By shippingLoc = By.xpath("(//input[@name='shippingoption'])[1]");
+	private  By tosLoc = By.id("termsofservice");
+	private  By checkoutLoc = By.xpath("//button[contains(text(),'Checkout')]");
+	private  By newAddressLoc = By.id("billing-address-select");
+	private  By fnLoc = By.id("BillingNewAddress_FirstName");
+	private  By countryLoc = By.id("BillingNewAddress_CountryId");
+	private  By cityLoc = By.id("BillingNewAddress_City");
+	private  By addressLoc = By.id("BillingNewAddress_Address1");
+	private  By postCodeLoc = By.id("BillingNewAddress_ZipPostalCode");
+	private  By numberLoc = By.id("BillingNewAddress_PhoneNumber");
+	private  By continue1Loc = By.xpath("(//input[@title='Continue'])[1]");
+	private  By continue2Loc = By.xpath("(//input[@title='Continue'])[2]");
+	private  By continue3Loc = By.xpath("(//input[@value='Continue'])[3]");
+	private  By continue4Loc = By.xpath("(//input[@value='Continue'])[4]");
+	private  By continue5Loc = By.xpath("(//input[@value='Continue'])[5]");
+	private  By confirmLoc = By.xpath("//input[@value='Confirm']");
+	//private  By shippingLoc = By.xpath("(//input[@name='shippingoption'])[1]");
+	private WebDriver driver;
+	public ShoppingCartPage(WebDriver driver)
+	{
+		this.driver = driver;
+	}
 	
-	public static void acceptTermsOfService(WebDriver driver)
+	public  void acceptTermsOfService()
 	{
 	driver.findElement(tosLoc).click();
 	}
-	public static void clickOnCheckOut(WebDriver driver)
+	public  void clickOnCheckOut()
 	{
     driver.findElement(checkoutLoc).click();
 	}
-    public static void clickOnAddress(WebDriver driver)
+    public  void clickOnAddress()
     {
     WebElement addressEle = driver.findElement(newAddressLoc);
     Select select1 = new Select(addressEle);
     select1.selectByVisibleText("New Address");
     }
     
-    public static void enterFirstName(WebDriver driver)
+    public  void enterFirstName()
     {
     WebElement fnEle = driver.findElement(fnLoc);
     fnEle.clear();fnEle.sendKeys("Kiranmai");
     }
     
-    public static void selectCountry(WebDriver driver)
+    public  void selectCountry()
     {
     WebElement countryEle = driver.findElement(countryLoc);
     Select select2 = new Select(countryEle);
     select2.selectByVisibleText("India");
     }
-    public static void enterCity(WebDriver driver)
+    public  void enterCity()
     {
     driver.findElement(cityLoc).sendKeys("Andhra");
     }
-    public static void enterAddress(WebDriver driver)
+    public  void enterAddress()
     {
     driver.findElement(addressLoc).sendKeys("Guntur");
     }
-    public static void enterPostCode(WebDriver driver)
+    public  void enterPostCode()
     {
     driver.findElement(postCodeLoc).sendKeys("123456");
     }
-    public static void enterPhoneNumber(WebDriver driver)
+    public  void enterPhoneNumber()
     {
     driver.findElement(numberLoc).sendKeys("9876543219");
     }
-    public static void clickOnContinues(WebDriver driver)
+    public  void clickOnContinues()
     {
     driver.findElement(continue1Loc).click();
     driver.findElement(continue2Loc).click();
@@ -76,7 +81,7 @@ public class ShoppingCartPage
     driver.findElement(continue4Loc).click();
     driver.findElement(continue5Loc).click(); 
     }
-    public static void clickOnConfirm(WebDriver driver)
+    public  void clickOnConfirm()
     {
     driver.findElement(confirmLoc).click(); 
     }

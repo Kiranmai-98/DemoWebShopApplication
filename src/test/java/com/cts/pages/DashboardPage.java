@@ -5,8 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 public class DashboardPage 
 {
-	private static By loginLoc = By.linkText("Log in");
-	public static void clickOnLogin(WebDriver driver)
+	private  By loginLoc = By.linkText("Log in");
+	private WebDriver driver;
+	public DashboardPage(WebDriver driver)
+	{
+		this.driver = driver;
+	}
+	public  void clickOnLogin()
 	{
 		driver.findElement(loginLoc).click();
 	}

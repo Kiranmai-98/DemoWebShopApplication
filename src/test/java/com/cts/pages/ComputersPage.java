@@ -6,39 +6,46 @@ import org.openqa.selenium.WebElement;
 
 public class ComputersPage 
 {
-	private static By desktopLoc = By.linkText("Desktops");
-	private static By cheapCompLoc = By.linkText("Build your own cheap computer");
-	private static By expCompLoc = By.linkText("Build your own expensive computer");
-	private static By atclLoc = By.xpath("//input[@value='Add to compare list']");
-	private static By cheapCompCostLoc = By.xpath("(//td[contains(text(),'800.00')])[1]");
-	private static By expCompCostLoc = By.xpath("(//td[contains(text(),'800.00')])[2]");
+	private  By desktopLoc = By.linkText("Desktops");
+	private   By cheapCompLoc = By.linkText("Build your own cheap computer");
+	private   By expCompLoc = By.linkText("Build your own expensive computer");
+	private   By atclLoc = By.xpath("//input[@value='Add to compare list']");
+	private   By cheapCompCostLoc = By.xpath("(//td[contains(text(),'800.00')])[1]");
+	private   By expCompCostLoc = By.xpath("(//td[contains(text(),'800.00')])[2]");
 	
-	public static void clickOnDesktop(WebDriver driver)
+	private WebDriver driver;
+	
+	public ComputersPage(WebDriver driver)
+	{
+		this.driver = driver;
+	}
+	
+	public   void clickOnDesktop()
 	{
 	  driver.findElement(desktopLoc).click();
 	}
 	
-	public static void clickOncheapComputer(WebDriver driver)
+	public   void clickOncheapComputer()
 	{
 	    WebElement cheapComputerEle = driver.findElement(cheapCompLoc);
 	    cheapComputerEle.click();
 	}
-	public static String costOfCheapComp(WebDriver driver)
+	public   String costOfCheapComp()
 	{
 		String text1 = driver.findElement(cheapCompCostLoc).getText();
 		return text1;
 	}
-	public static void clickOnExpensiveComputer(WebDriver driver)
+	public   void clickOnExpensiveComputer()
 	{
 	    WebElement ExpComputerEle = driver.findElement(expCompLoc);
 	    ExpComputerEle.click();
 	}
-	public static String costOfExpComp(WebDriver driver)
+	public   String costOfExpComp()
 	{
 		String text2 = driver.findElement(expCompCostLoc).getText();
 		return text2;
 	}
-	public static void clickToAddToCompareList(WebDriver driver)
+	public  void clickToAddToCompareList()
 	{
 	    driver.findElement(atclLoc).click();
 	}

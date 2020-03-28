@@ -8,14 +8,19 @@ import org.openqa.selenium.WebElement;
 
 public class OrdersPage 
 {
-	private static By orderDetailsLoc = By.linkText("Click here for order details.");
+	private  By orderDetailsLoc = By.linkText("Click here for order details.");
+	private WebDriver driver;
+	public OrdersPage(WebDriver driver)
+	{
+		this.driver = driver;
+	}
 	
-	public static void clickForOrderDetails(WebDriver driver)
+	public  void clickForOrderDetails()
 	{
 		driver.findElement(orderDetailsLoc).click();
 	}
 	
-	public static void toPrintDetailsOfOrder(WebDriver driver)
+	public  void toPrintDetailsOfOrder()
 	{
 	    WebElement orderDetails = driver.findElement(By.className("data-table"));
 	    List<WebElement> allDetails = orderDetails.findElements(By.tagName("tr"));
